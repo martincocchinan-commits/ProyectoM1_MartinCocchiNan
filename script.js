@@ -27,7 +27,7 @@ buttonGenerate.addEventListener("click", function () {
 
 // GENERATOR HSL
 function obtenerColorActual() {
-       return obtenerHsl();
+    return obtenerHsl();
 }
 
 
@@ -38,6 +38,89 @@ function obtenerHsl() {
     const light = Math.floor(Math.random() * 100);
     return `hsl(${hue}, ${saturation}%, ${light}%)`;
 }
+
+let currentMode = "hsl"; // default starting mode
+
+
+// generators used ONLY by the generate button / new clones
+
+// GENERATOR HEX 
+function obtenerHex() {
+    const randomInt = Math.floor(Math.random() * 0xffffff);
+    return `#${randomInt.toString(16).padStart(6, '0')}`;
+}
+
+// GENERATOR HSL
+function obtenerColorActual() {
+    return currentMode === "hex" ? obtenerHex() : obtenerHsl();
+}
+
+// HEX HSL CONVERTERS
+
+// ---- conversion helpers: reformat an EXISTING color, don't randomize ----
+function rgbStringToHex(rgbString) {
+    const match = rgbString.match(/\d+/g);
+    if (!match) return rgbString;
+    const [r, g, b] = match.map(Number);
+    const toHex = x => x.toString(16).padStart(2, '0');
+    return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+}
+
+function rgbStringToHsl(rgbString) {
+    const match = rgbString.match(/\d+/g);
+    if (!match) return rgbString;
+    let [r, g, b] = match.map(Number);
+    r /= 255; g /= 255; b /= 255;
+
+    const max = Math.max(r, g, b), min = Math.min(r, g, b);
+    let h, s, l = (max + min) / 2;
+
+    if (max === min) {
+        h = s = 0; // achromatic
+    } else {
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+            case g: h = (b - r) / d + 2; break;
+            case b: h = (r - g) / d + 4; break;
+        }
+        h /= 6;
+    }
+
+    h = Math.round(h * 360);
+    s = Math.round(s * 100);
+    l = Math.round(l * 100);
+
+    return `hsl(${h}, ${s}%, ${l}%)`;
+}
+
+
+// REFORMAT PALETTES TO HEX OR HSL
+function reformatAllPalettes(mode) {
+    const allSwatches = document.querySelectorAll(".palette-created");
+    const allLabels = document.querySelectorAll(".hsl-value");
+
+    for (let i = 0; i < allSwatches.length; i++) {
+        const currentColor = getComputedStyle(allSwatches[i]).backgroundColor; // always returns rgb(...)
+        const converted = mode === "hex"
+            ? rgbStringToHex(currentColor)
+            : rgbStringToHsl(currentColor);
+
+        allLabels[i].textContent = converted;
+        // swatch background stays visually identical since it's the same color, just reformatted
+    }
+}
+
+buttonHex.addEventListener("click", function () {
+    currentMode = "hex";
+    reformatAllPalettes("hex");
+});
+
+buttonHsl.addEventListener("click", function () {
+    currentMode = "hsl";
+    reformatAllPalettes("hsl");
+});
 
 // Clone reconciliation (grow/shrink, preserve existing colors) ----
 function reconcileClones(maxClones) {
