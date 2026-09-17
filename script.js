@@ -25,6 +25,11 @@ buttonGenerate.addEventListener("click", function () {
     recolorAllPalettes();
 });
 
+// GENERATOR HSL
+function obtenerColorActual() {
+       return obtenerHsl();
+}
+
 
 // HSL generator 
 function obtenerHsl() {
