@@ -1,0 +1,207 @@
+/* reset*/
+* {
+    html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+}
+
+/* font size */
+html {
+    font-size: 100%;
+}
+
+
+
+:root {
+
+    /* Colores primarios */
+    --color-primario: hsl(138, 100%, 76%);
+    --color-primario-oscuro: hsl(138, 59%, 43%);
+    --color-primario-mas-oscuro: hsl(138, 62%, 29%);
+    --color-primario-claro: hsl(137, 100%, 90%);
+    --color-blanco: rgb(255, 255, 255);
+
+    /* Estados */
+    --color-exito: hsl(120, 60%, 45%);
+    --color-advertencia: hsl(45, 100%, 50%);
+    --color-error: hsl(0, 70%, 50%);
+
+    --shadow-1: 0 2px 8px var(--color-primario-oscuro);
+
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    background: var(--color-blanco);
+    margin: 0;
+
+}
+
+
+header {
+    display: flex;
+    color: var(--color-blanco);
+    height: 150px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px var(--color-primario-oscuro);
+    background-color: var(--color-primario-oscuro);
+    
+}
+
+.header-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+    text-align: center;
+
+}
+
+.container {
+    padding: 1rem;
+    justify-items: center;
+    text-align: center;
+
+}
+
+.generate {
+    max-width: 0,5rem;
+    margin: 0 auto;
+    padding: 1rem;
+    justify-items: center;
+    text-align: center;
+    cursor: pointer
+    
+}
+
+#palette-container {
+    margin: 0 auto;
+    padding: 1rem;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(6, 1fr);
+    justify-content: center;
+            
+}
+
+.palette-container-9 {
+    margin: 0 auto;
+    padding: 0.5rem;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(9, 1fr);
+    justify-content: center;
+            
+}
+
+.palette-created {
+    align-items: center;
+    border-width: 0px;
+    background-color: var(--color-blanco);
+    border-radius: 10px;
+    height: 200px;
+    width: 8.5rem;
+    overflow: hidden;
+    cursor: pointer
+
+}
+
+.hsl-value{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;    
+    padding: 0.2rem;
+    
+}
+
+
+
+footer {
+    text-align: center;
+    color: #888;
+    font-size: 0.95rem;
+}
+
+
+@media (max-width: 768px) {
+    #palette-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .titulo-principal {
+        font-size: 2rem;
+    }
+    .palette-created {
+    width: 7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #palette-container {
+        display: grid;
+        grid-template-rows: repeat(1, 2fr);
+    }
+    .hsl-value {
+        font-size: 0.5rem;
+    }
+    .palette-created {
+    width: 6rem;
+    }
+    
+}
+
+/** repeat auto-fill var(minmax**/
+
+@keyframes opacidad {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1; /* Totalmente visible */
+  }
+}
+
+.galery {
+  animation-name: opacidad ;
+  animation-duration: 1.5s;
+}
