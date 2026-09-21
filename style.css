@@ -169,13 +169,13 @@ header {
     align-items: center;       /* centers vertically, keeps both on one line */
     gap: 2rem;
     padding: 1rem;
-    height: 150px;
+    min-height: 150px;
     font-family: 'DIN2014-BoldItalic', sans-serif;
     font-style: italic;
-    font-weight: 700;
     font-size: 64px;
-    line-height: 84px;
+    line-height: 0.8;
     color: #000000;
+    text-align: right;
 }
 
 
@@ -195,19 +195,21 @@ header {
     /* width: 435px; height: 54px;  <- removed, see below */
     font-family: 'DIN2014-Demi', sans-serif;
     font-style: normal;
-    font-weight: 700;          /* matches its @font-face */
     font-size: 32px;
     line-height: 1.2;
     color: #000000;
+    text-align: left;
 }
 
 .galery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    margin: 0.5rem;
+    max-width: 900px;
     align-items: center;
     justify-items: center;
-    gap: 3rem;
-    padding: 2rem;
+    gap: 1rem;
+    padding: 1rem;
 }
 
 
@@ -224,18 +226,13 @@ header {
     font-size: 32px;
 
     box-sizing: border-box;
-    /* width/height now include padding and border */
     width: 181px;
     height: 54px;
     margin: 0 auto;
     padding: 0;
-    /* let flex do the centering */
-
     display: flex;
     align-items: center;
-    /* vertical */
     justify-content: center;
-    /* horizontal */
     text-align: center;
 
     background: #FFF58C;
@@ -272,16 +269,17 @@ header {
 }
 
 #button-amount-of-colors {
-    line-height: 30px;
-    color: #000000;
-    
+    box-sizing: border-box;      /* 151x46 now includes the 6px border */
+    display: flex;
+    align-items: center;         /* vertical centering */
+    justify-content: space-around; /* spreads 6 / 8 / 9 evenly */
+    flex-shrink: 0;
     width: 151px;
     height: 46px;
 
     background: #DBD9D9;
     border: 6px solid #000000;
     border-radius: 100px;
-    justify-items: center;
 
 }
 
@@ -296,17 +294,22 @@ header {
 #amount-of-colors-6,
 #amount-of-colors-8,
 #amount-of-colors-9 {
-    width: auto;
-    height: auto;
-    padding: 10px;
+    flex: 1;                     /* each button takes an equal third */
+    height: 100%;                /* full inner height, so text centers vertically */
+    padding: 0;                  /* the 10px padding was causing the overflow */
+    margin: 0;
+
     font-family: 'D-DIN Exp', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
-    background-color: transparent;
+    line-height: 1;
+    text-align: center;
+
+    background: transparent;
     color: #000000;
-    border-style: hidden;
-    cursor: pointer
+    border: 0;
+    cursor: pointer;
 }
 
 @font-face {
@@ -315,14 +318,18 @@ header {
     font-style: normal;
     font-weight: 400;
     font-display: swap;
+    
 }
 
 /* selected state */
 #button-amount-of-colors button.active {
     font-family: 'DIN2014-ExtraBold', sans-serif;
     font-style: normal;
-    padding: 10px;
     font-weight: 400;
+    flex: 1;                     /* each button takes an equal third */
+    height: 100%;                /* full inner height, so text centers vertically */
+    padding: 5px;                  /* the 10px padding was causing the overflow */
+    margin: 0;
 }
 
 #palette-container {
@@ -346,9 +353,20 @@ header {
     cursor: pointer
 }
 
+@font-face {
+    font-family: 'D-DINCondensed.otf';
+    src: url('./fonts/D-DINCondensed.otf') format('opentype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    
+}
+
 .hsl-value {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.8rem;
+    font-family: 'D-DINCondensed.otf', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.1rem;
     padding: 0.2rem;
 
 }
@@ -366,8 +384,8 @@ header {
 
 
 #toast-copied {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1rem;
+    font-family: 'DIN2014-Bold';
+    font-size: 16px;
     background: #fff;
     padding: 0.5rem;
     border-radius: 4px;
@@ -398,13 +416,43 @@ header {
 footer {
     text-align: center;
     color: #888;
-    font-size: 0.95rem;
+    font-size: 0.8rem;
+    font-family: 'DIN2014-Demi', sans-serif;
+    font-style: normal;
+    padding: 1rem;
+    
 }
 
 
 @media (max-width: 768px) {
+    header {
+        font-size: 3rem;
+        height: auto;            /* shrinks to fit the content */
+        min-height: 0;
+        height: auto;            /* shrinks to fit the content */
+        min-height: 0;
+        flex-direction: column;  /* title above description, so nothing gets squeezed */
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        line-height: 1.1;        /* 0.8 can clip or overlap text when it wraps */
+        text-align: center;
+
+    }
+    .description {
+        font-size: 1rem;
+        padding-left: 0;
+        border-left: 0;          /* the vertical bar makes no sense when stacked */
+        text-align: center;
+    }
+    .galery {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); 
+        margin: 0;               /* removes another 0.5rem of space above the controls */
+        padding: 0.5rem 1rem;
+        gap: 0.75rem;
+    }
     #palette-container {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(5, 1fr);
     }
 
     .titulo-principal {
@@ -414,12 +462,44 @@ footer {
     .palette-created {
         width: 7rem;
     }
+    #generate {
+    font-size: 1.5rem;
+    width: 60%;
+    height: 90%;
+    border: 4px solid #000000;
+    border-radius: 100px;
+    cursor: pointer;
+}
+    #title-size, 
+    .color-style
+    {
+    font-family: 'DIN2014-Bold';
+    font-size: 1.5rem;
+    
+}
+#amount-of-colors-6,
+#amount-of-colors-8,
+#amount-of-colors-9 {
+    height: 90%;               
+    font-size: 1.2rem;
+    line-height: 1;
+    
+}
+#button-amount-of-colors {
+    width: 60%;
+    height: 46px;
+
+    background: #DBD9D9;
+    border: 6px solid #000000;
+    border-radius: 100px;
+
+}
 }
 
 @media (max-width: 480px) {
     #palette-container {
         display: grid;
-        grid-template-rows: repeat(1, 2fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .hsl-value {
@@ -430,6 +510,7 @@ footer {
         width: 6rem;
         height: 170px;
     }
+    
 }
 
 /** repeat auto-fill var(minmax**/
@@ -445,6 +526,7 @@ footer {
     }
 }
 
+/**
 .galery {
     animation-name: opacidad;
     animation-duration: 1.5s;
