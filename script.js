@@ -3,6 +3,7 @@ const buttonGenerate = document.getElementById("generate");
 const buttonSix = document.getElementById("amount-of-colors-6");
 const buttonEight = document.getElementById("amount-of-colors-8");
 const buttonNine = document.getElementById("amount-of-colors-9");
+const modeToggle = document.getElementById('button-mode');
 const buttonHex = document.getElementById("hex");
 const buttonHsl = document.getElementById("hsl");
 const paletteContainer = document.getElementById("palette-code");
@@ -197,4 +198,16 @@ document.addEventListener("click", function (event) {
         });
 
     showToast();
+});
+
+document.getElementById('amount-of-colors-6').classList.add('active');
+const sizeButtons = document.querySelectorAll('#button-amount-of-colors button');
+
+sizeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // remove the style from all buttons
+        sizeButtons.forEach(b => b.classList.remove('active'));
+        // apply it to the clicked one
+        btn.classList.add('active');
+    });
 });
