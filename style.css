@@ -1,49 +1,136 @@
 /* reset*/
 * {
-    html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
 
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+
+    /* HTML5 display-role reset for older browsers */
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+        display: block;
+    }
+
+    body {
+        line-height: 1;
+    }
+
+    ol,
+    ul {
+        list-style: none;
+    }
+
+    blockquote,
+    q {
+        quotes: none;
+    }
+
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+        content: '';
+        content: none;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
 }
 
 /* font size */
@@ -88,7 +175,7 @@ header {
     padding: 1rem;
     box-shadow: 0 2px 8px var(--color-primario-oscuro);
     background-color: var(--color-primario-oscuro);
-    
+
 }
 
 .header-content {
@@ -107,13 +194,12 @@ header {
 }
 
 .generate {
-    max-width: 0,5rem;
+    max-width: 0, 5rem;
     margin: 0 auto;
     padding: 1rem;
     justify-items: center;
     text-align: center;
     cursor: pointer
-    
 }
 
 #palette-container {
@@ -123,7 +209,7 @@ header {
     gap: 5px;
     grid-template-columns: repeat(6, 1fr);
     justify-content: center;
-            
+
 }
 
 .palette-container-9 {
@@ -133,7 +219,7 @@ header {
     gap: 5px;
     grid-template-columns: repeat(9, 1fr);
     justify-content: center;
-            
+
 }
 
 .palette-created {
@@ -145,17 +231,44 @@ header {
     width: 8.5rem;
     overflow: hidden;
     cursor: pointer
-
 }
 
-.hsl-value{
+.hsl-value {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.8rem;    
+    font-size: 0.8rem;
     padding: 0.2rem;
-    
+
 }
 
+#toast-copied {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    background: #fff;
+    padding: 0.5rem;
+    border-radius: 4px;
+    box-shadow: -1px 1px 10px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    opacity: 0;
 
+}
+
+#toast-copied.show {
+    animation: fadeOut 2s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
 
 footer {
     text-align: center;
@@ -168,11 +281,13 @@ footer {
     #palette-container {
         grid-template-columns: repeat(3, 1fr);
     }
+
     .titulo-principal {
         font-size: 2rem;
     }
+
     .palette-created {
-    width: 7rem;
+        width: 7rem;
     }
 }
 
@@ -181,27 +296,31 @@ footer {
         display: grid;
         grid-template-rows: repeat(1, 2fr);
     }
+
     .hsl-value {
         font-size: 0.6rem;
     }
+
     .palette-created {
-    width: 6rem;
-    height: 170px;
+        width: 6rem;
+        height: 170px;
     }
 }
 
 /** repeat auto-fill var(minmax**/
 
 @keyframes opacidad {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1; /* Totalmente visible */
-  }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        /* Totalmente visible */
+    }
 }
 
 .galery {
-  animation-name: opacidad ;
-  animation-duration: 1.5s;
+    animation-name: opacidad;
+    animation-duration: 1.5s;
 }

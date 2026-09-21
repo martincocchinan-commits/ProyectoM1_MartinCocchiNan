@@ -7,7 +7,7 @@ const buttonHex = document.getElementById("hex");
 const buttonHsl = document.getElementById("hsl");
 const paletteContainer = document.getElementById("palette-code");
 const CopyHex = document.getElementsByClassName("palette-created");
-
+const toast = document.getElementById("toast-copied");
 
 // FUNCION RANDOMIZER
 function recolorAllPalettes() {
@@ -168,6 +168,13 @@ document.addEventListener("DOMContentLoaded", function () {
     recolorAllPalettes();
 });
 
+// TOAST APPEARS ON CLICK
+function showToast() {
+    toast.classList.remove("show");
+    void toast.offsetWidth; // force reflow so the animation restarts on rapid clicks
+    toast.classList.add("show");
+}
+
 // COPY HEX CODE ON CLICK
 
 document.addEventListener("click", function (event) {
@@ -188,4 +195,6 @@ document.addEventListener("click", function (event) {
         .catch(function (err) {
             console.error("Copy failed:", err);
         });
+
+    showToast();
 });
