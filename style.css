@@ -135,11 +135,7 @@ html {
     font-size: 100%;
 }
 
-:root {
 
-    
-
-}
 
 @font-face {
     font-family: 'DIN2014-BoldItalic';
@@ -187,7 +183,7 @@ header {
     font-display: swap;
 }
 
-/* the black bar is now the description's left border */
+
 .description {
     padding-left: 2rem;
     border-left: 6px solid #000000;
@@ -429,8 +425,6 @@ footer {
         font-size: 3rem;
         height: auto;            /* shrinks to fit the content */
         min-height: 0;
-        height: auto;            /* shrinks to fit the content */
-        min-height: 0;
         flex-direction: column;  /* title above description, so nothing gets squeezed */
         gap: 0.5rem;
         padding: 0.5rem 1rem;
@@ -490,20 +484,72 @@ footer {
     height: 46px;
 
     background: #DBD9D9;
-    border: 6px solid #000000;
+    border: 5px solid #000000;
     border-radius: 100px;
 
 }
 }
 
 @media (max-width: 480px) {
+    header {
+        font-size: 2rem;
+        flex-direction: column;  /* title above description, so nothing gets squeezed */
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        line-height: 1.1;        /* 0.8 can clip or overlap text when it wraps */
+        text-align: center;
+
+    }
+    .description {
+        font-size: 0.8rem;
+        padding-left: 0;
+        border-left: 0;          /* the vertical bar makes no sense when stacked */
+        text-align: center;
+    }
     #palette-container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
+    .titulo-principal {
+        font-size: 2rem;
+    }
 
+    .palette-created {
+        width: 7rem;
+    }
+    #generate {
+    font-size: 1.2rem;
+    width: 50%;
+    height: 90%;
+    border: 3px solid #000000;
+    border-radius: 100px;
+    }
+    #title-size, 
+    .color-style
+    {
+    font-family: 'DIN2014-Bold';
+    font-size: 1.2rem;
+    
+}
+    #amount-of-colors-6,
+    #amount-of-colors-8,
+#amount-of-colors-9 {
+    height: 80%;               
+    font-size: 1.2rem;
+    line-height: 1;
+    
+}
+    #button-amount-of-colors {
+    width: 60%;
+    height: 50%;
+
+    background: #DBD9D9;
+    border: 4px solid #000000;
+    border-radius: 100px;
+
+}
     .hsl-value {
-        font-size: 0.6rem;
+        font-size: 0.9rem;
     }
 
     .palette-created {
