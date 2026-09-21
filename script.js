@@ -6,6 +6,7 @@ const buttonNine = document.getElementById("amount-of-colors-9");
 const buttonHex = document.getElementById("hex");
 const buttonHsl = document.getElementById("hsl");
 const paletteContainer = document.getElementById("palette-code");
+const CopyHex = document.getElementsByClassName("palette-created");
 
 
 // FUNCION RANDOMIZER
@@ -167,3 +168,24 @@ document.addEventListener("DOMContentLoaded", function () {
     recolorAllPalettes();
 });
 
+// COPY HEX CODE ON CLICK
+
+document.addEventListener("click", function (event) {
+    const swatch = event.target.closest(".palette-created");
+    if (!swatch) return;
+
+    // find the label that belongs to this swatch
+    const container = swatch.closest("#palette-code, .palette-clone");
+    const label = container ? container.querySelector(".hsl-value") : null;
+    if (!label) return;
+
+    const colorText = rgbStringToHex(getComputedStyle(swatch).backgroundColor);
+
+    navigator.clipboard.writeText(colorText)
+        .then(function () {
+            console.log("Copied:", colorText);
+        })
+        .catch(function (err) {
+            console.error("Copy failed:", err);
+        });
+});

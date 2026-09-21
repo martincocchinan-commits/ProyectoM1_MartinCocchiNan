@@ -182,12 +182,12 @@ footer {
         grid-template-rows: repeat(1, 2fr);
     }
     .hsl-value {
-        font-size: 0.5rem;
+        font-size: 0.6rem;
     }
     .palette-created {
     width: 6rem;
+    height: 170px;
     }
-    
 }
 
 /** repeat auto-fill var(minmax**/
