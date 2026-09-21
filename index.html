@@ -10,10 +10,9 @@
 
 <body>
     <header>
-        <div id="titulo">
-            <h1 class="header"> COLORFLY STUDIO </h1>
-            <h2 class="descripcion">
-                Your online friend to create amazing color palettes.</h2>
+        <h1 class="header"> //colorfly studio </h1>
+        <h2 class="description">
+            Your online friend to create amazing color palettes.</h2>
     </header>
 
 
@@ -21,25 +20,35 @@
     <main class="container">
 
         <section class="galery">
+            <button id="generate">CREATE</button>
+            <div class="control-group">
+                <P id="title-size">PALETTE SIZE</P>
+                <div id="button-amount-of-colors">
 
-            <div id="button-amount-of-colors">
-                <button id="amount-of-colors-6">6</button>
-                <button id="amount-of-colors-8">8</button>
-                <button id="amount-of-colors-9">9</button>
-            </div>
-            <div>
-                <button id="generate">generate</button>
-                <button id="hex">hex</button>
-                <button id="hsl">hsl</button>
-            </div>
-            <div id="palette-container">
-                <div id="palette-code">
-                    <button class="palette-created"></button>
-                    <h3 class="hsl-value"></h3>
+                    <button id="amount-of-colors-6">6</button>
+                    <button id="amount-of-colors-8">8</button>
+                    <button id="amount-of-colors-9">9</button>
                 </div>
+            </div>
+            <div class="control-group mode-group">
+                <p class="color-style">HSL</p>
+                <div id="button-mode" data-mode="hsl">
+                    <button id="hsl" aria-label="HSL" aria-pressed="true"></button>
+                    <button id="hex" aria-label="HEX" aria-pressed="false"></button>
+                </div>
+                <p class="color-style">HEX</p>
+            </div>
             </div>
 
         </section>
+        <div id="palette-container">
+            <div id="palette-code">
+                <button class="palette-created"></button>
+                <h3 class="hsl-value"></h3>
+            </div>
+        </div>
+
+
 
     </main>
     <div id="toast-copied">HEX COPIED
