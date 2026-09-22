@@ -3,9 +3,6 @@ const buttonGenerate = document.getElementById("generate");
 const buttonSix = document.getElementById("amount-of-colors-6");
 const buttonEight = document.getElementById("amount-of-colors-8");
 const buttonNine = document.getElementById("amount-of-colors-9");
-const modeToggle = document.getElementById('button-mode');
-const buttonHex = document.getElementById("hex");
-const buttonHsl = document.getElementById("hsl");
 const paletteContainer = document.getElementById("palette-code");
 const CopyHex = document.getElementsByClassName("palette-created");
 const toast = document.getElementById("toast-copied");
@@ -41,8 +38,20 @@ function obtenerHsl() {
     return `hsl(${hue}, ${saturation}%, ${light}%)`;
 }
 
+
 let currentMode = "hsl"; // default starting mode
 
+// BUTTON TOGGLE
+const buttonMode = document.getElementById("button-mode");
+
+// sync initial visual state to match currentMode
+buttonMode.classList.toggle("hsl-active", currentMode === "hsl");
+
+buttonMode.addEventListener("click", function () {
+    currentMode = currentMode === "hex" ? "hsl" : "hex";
+    buttonMode.classList.toggle("hsl-active", currentMode === "hsl");
+    reformatAllPalettes(currentMode);
+});
 
 // generators used ONLY by the generate button / new clones
 
@@ -114,6 +123,7 @@ function reformatAllPalettes(mode) {
     }
 }
 
+/**
 buttonHex.addEventListener("click", function () {
     currentMode = "hex";
     reformatAllPalettes("hex");
@@ -123,6 +133,24 @@ buttonHsl.addEventListener("click", function () {
     currentMode = "hsl";
     reformatAllPalettes("hsl");
 });
+
+// BUTTON TOGGLE
+const buttonMode = document.getElementById("button-mode");
+
+buttonHex.addEventListener("click", function () {
+    currentMode = "hex";
+    buttonMode.classList.remove("hsl-active");
+    reformatAllPalettes("hex");
+});
+
+buttonHsl.addEventListener("click", function () {
+    currentMode = "hsl";
+    buttonMode.classList.add("hsl-active");
+    reformatAllPalettes("hsl");
+});
+ */
+
+
 
 // Clone reconciliation (grow/shrink, preserve existing colors) ----
 function reconcileClones(maxClones) {
@@ -201,6 +229,7 @@ document.addEventListener("click", function (event) {
 });
 
 document.getElementById('amount-of-colors-6').classList.add('active');
+
 const sizeButtons = document.querySelectorAll('#button-amount-of-colors button');
 
 sizeButtons.forEach(btn => {
