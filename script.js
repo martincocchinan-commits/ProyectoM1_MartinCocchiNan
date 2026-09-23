@@ -1,4 +1,4 @@
-const buttonGenerate = document.getElementById("generate");
+const buttonGenerate = document.getElementById("create");
 
 const buttonSix = document.getElementById("amount-of-colors-6");
 const buttonEight = document.getElementById("amount-of-colors-8");

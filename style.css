@@ -216,27 +216,46 @@ header {
 
 }
 
-#generate {
+#create {
+    position: relative;
+    padding-left: 0;
+    padding-right: 8px;
     font-family: 'DIN2014-BoldItalic', sans-serif;
     font-style: italic;
     font-size: 32px;
-
     box-sizing: border-box;
     width: 181px;
     height: 54px;
     margin: 0 auto;
-    padding: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 
+    background: none;   /* moved to ::before */
+    border: none;        /* moved to ::before */
+    border-radius: 100px;
+    cursor: pointer;
+    z-index: 0;
+}
+
+#create::before {
+    content: "";
+    position: absolute;
+    inset: 0;             /* fills the button's box exactly */
     background: #FFF58C;
     border: 6px solid #000000;
     border-radius: 100px;
-    cursor: pointer;
+    z-index: -1;
+    transition: transform 0.10s ease, background 0.10s ease;
+    transform-origin: center;
 }
 
+#create:active::before {
+    transform: scale(1.05);   /* grows outward evenly from the center */
+    background: #ffef3d;
+}
 
 
 .control-group {
@@ -276,7 +295,9 @@ header {
     background: #DBD9D9;
     border: 6px solid #000000;
     border-radius: 100px;
-
+    display: flex; /* keep this on the container only */
+    justify-content: center;
+    align-items: center;
 }
 
 @font-face {
@@ -290,15 +311,22 @@ header {
 #amount-of-colors-6,
 #amount-of-colors-8,
 #amount-of-colors-9 {
-    flex: 1;                     /* each button takes an equal third */
-    height: 100%;                /* full inner height, so text centers vertically */
-    padding: 0;                  /* the 10px padding was causing the overflow */
+    transform: translateY(2px);    
+
+    outline: none;
+    flex: none;                  /* no growing/shrinking */
+    width: 40px;                 /* fixed, steady width — adjust to taste */
+    height: 40px;                /* fixed, steady height */
+    padding: 0;
     margin: 0;
+
+    display: flex;               /* just for centering text inside the fixed box */
+    align-items: center;
+    justify-content: center;
 
     font-family: 'D-DIN Exp', sans-serif;
     font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
+    font-size: 1.3rem;
     line-height: 1;
     text-align: center;
 
@@ -306,6 +334,8 @@ header {
     color: #000000;
     border: 0;
     cursor: pointer;
+
+    transition: transform 0.10s ease;
 }
 
 @font-face {
@@ -314,18 +344,16 @@ header {
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    
 }
 
-/* selected state */
+/* selected state — same box size, just a visual emphasis */
 #button-amount-of-colors button.active {
     font-family: 'DIN2014-ExtraBold', sans-serif;
     font-style: normal;
-    font-weight: 400;
-    flex: 1;                     /* each button takes an equal third */
-    height: 100%;                /* full inner height, so text centers vertically */
-    padding: 5px;                  /* the 10px padding was causing the overflow */
-    margin: 0;
+    font-size: 1.3rem;             /* keep base size the same */
+    line-height: 1;
+    transform: scale(1.2);       /* visually "bigger" without resizing the box */
+    
 }
 
 #palette-container {
@@ -343,7 +371,7 @@ header {
     border-width: 0px;
     background-color: var(--color-blanco);
     border-radius: 10px;
-    height: 200px;
+    height: 400px;
     width: 8.5rem;
     overflow: hidden;
     cursor: pointer
@@ -379,7 +407,12 @@ header {
 
 
 
+#palette-container {
+    position: relative; /* positioning context for the toast */
+}
+
 #toast-copied {
+    position: absolute;
     font-family: 'DIN2014-Bold';
     font-size: 16px;
     background: #fff;
@@ -387,12 +420,13 @@ header {
     border-radius: 4px;
     box-shadow: -1px 1px 10px rgba(0, 0, 0, 0.3);
     position: fixed;
-    bottom: 1rem;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     text-align: center;
     opacity: 0;
-
+    white-space: nowrap;
+    pointer-events: none;
 }
 
 #toast-copied.show {
@@ -533,7 +567,7 @@ footer {
 }
     #amount-of-colors-6,
     #amount-of-colors-8,
-#amount-of-colors-9 {
+    #amount-of-colors-9 {
     height: 80%;               
     font-size: 1.2rem;
     line-height: 1;
@@ -577,64 +611,69 @@ footer {
     animation-duration: 1.5s;
 }
 
-
 #button-mode {
-  width: 100px;
-  height: calc(90px / 2);
-  border-radius: 60px;
-  border-style: solid;
-  border-width: 6px;
-  border-color: black;
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
+    width: 100px;
+    height: calc(90px / 2);
+    border-radius: 60px;
+    border-style: solid;
+    border-width: 6px;
+    border-color: black;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
 }
 
 #button-mode::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  background-color: #f1f1f1;
-  border-radius: 60px;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #f1f1f1;
+    border-radius: 60px;
 }
 
 #button-mode::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  z-index: 1;
-  transition: transform .4s cubic-bezier(0.44,-0.12, 0.07, 1.15);
-  width: calc(70px / 2);
-  height: calc(70px / 2);
-  transform: translate3d(30%, -50%, 0);
-  background-color: #000000;
-  border-radius: 100%;
-  pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    transition: transform .4s cubic-bezier(0.44, -0.12, 0.07, 1.15);
+    width: calc(70px / 2);
+    height: calc(70px / 2);
+    transform: translate3d(30%, -50%, 0);
+    background-color: #000000;
+    border-radius: 100%;
+    pointer-events: none;
 }
 
 #button-mode.hsl-active::after {
-  transform: translate3d(-130%, -50%, 0);
+    transform: translate3d(-130%, -50%, 0);
 }
 
 #button-mode button {
-  position: absolute;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  z-index: 2;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 2;
+    appearance: none;
+    -webkit-appearance: none;
+    box-shadow: none;
 }
 
 #hex {
-  left: 0;
+    left: 0;
 }
 
 #hsl {
-  right: 0;
+    right: 0;
 }
