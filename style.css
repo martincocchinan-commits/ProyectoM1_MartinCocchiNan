@@ -1,4 +1,4 @@
-  html,
+html,
     body,
     div,
     span,
@@ -356,6 +356,13 @@ header {
     
 }
 
+/* ============================================================
+   PALETTE GRID — 3 size setups (6 / 8 / 9 colors)
+   #palette-container gets one of the .grid-6 / .grid-8 / .grid-9
+   classes toggled from JS when the amount-of-colors buttons are
+   clicked. Swatch width is driven by --swatch-w so .palette-created
+   below just reads the variable and animates between values.
+   ============================================================ */
 #palette-container {
     margin: 0 auto;
     padding: 1rem;
@@ -363,7 +370,27 @@ header {
     gap: 5px;
     grid-template-columns: repeat(6, 1fr);
     justify-content: center;
+    --swatch-w: 8.5rem; /* default = 6-color width */
 
+    transition: grid-template-columns 0.3s ease;
+}
+
+#palette-container.grid-6 {
+    grid-template-columns: repeat(6, 1fr);
+    --swatch-w: 12rem; /* same as current 6-color width */
+    gap: 5px; /* same gap as the 6-color layout, kept explicit on purpose */
+}
+
+#palette-container.grid-8 {
+    grid-template-columns: repeat(8, 1fr);
+    --swatch-w: 10rem; /* smaller to fit 8 across */
+    gap: 5px; /* same gap as the 6-color layout */
+}
+
+#palette-container.grid-9 {
+    grid-template-columns: repeat(9, 1fr);
+    --swatch-w: 8rem; /* smaller still to fit 9 across */
+    gap: 5px; /* same gap as the 6-color layout */
 }
 
 .palette-created {
@@ -372,9 +399,11 @@ header {
     background-color: var(--color-blanco);
     border-radius: 10px;
     height: 400px;
-    width: 8.5rem;
+    width: var(--swatch-w, 8.5rem);
     overflow: hidden;
-    cursor: pointer
+    cursor: pointer;
+
+    transition: width 0.3s ease;
 }
 
 @font-face {
@@ -609,6 +638,14 @@ footer {
 #palette-container {
     animation-name: opacidad;
     animation-duration: 1.5s;
+}
+
+/* New color swatches (clones added by the generate/size buttons)
+   fade in individually using the same keyframes. */
+.palette-clone {
+    animation-name: opacidad;
+    animation-duration: 0.6s;
+    animation-timing-function: ease;
 }
 
 #button-mode {

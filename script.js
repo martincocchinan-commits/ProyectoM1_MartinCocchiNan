@@ -4,6 +4,7 @@ const buttonSix = document.getElementById("amount-of-colors-6");
 const buttonEight = document.getElementById("amount-of-colors-8");
 const buttonNine = document.getElementById("amount-of-colors-9");
 const paletteContainer = document.getElementById("palette-code");
+const paletteGrid = document.getElementById("palette-container"); // the actual grid wrapper
 const CopyHex = document.getElementsByClassName("palette-created");
 const toast = document.getElementById("toast-copied");
 
@@ -123,34 +124,6 @@ function reformatAllPalettes(mode) {
     }
 }
 
-/**
-buttonHex.addEventListener("click", function () {
-    currentMode = "hex";
-    reformatAllPalettes("hex");
-});
-
-buttonHsl.addEventListener("click", function () {
-    currentMode = "hsl";
-    reformatAllPalettes("hsl");
-});
-
-// BUTTON TOGGLE
-const buttonMode = document.getElementById("button-mode");
-
-buttonHex.addEventListener("click", function () {
-    currentMode = "hex";
-    buttonMode.classList.remove("hsl-active");
-    reformatAllPalettes("hex");
-});
-
-buttonHsl.addEventListener("click", function () {
-    currentMode = "hsl";
-    buttonMode.classList.add("hsl-active");
-    reformatAllPalettes("hsl");
-});
- */
-
-
 
 // Clone reconciliation (grow/shrink, preserve existing colors) ----
 function reconcileClones(maxClones) {
@@ -163,7 +136,7 @@ function reconcileClones(maxClones) {
             clone.removeAttribute("id");
             clone.classList.add("palette-clone");
 
-            const randomColor = obtenerHsl();
+            const randomColor = obtenerColorActual();
             const swatch = clone.querySelector(".palette-created");
             const label = clone.querySelector(".hsl-value");
 
@@ -179,20 +152,27 @@ function reconcileClones(maxClones) {
     }
 }
 
+// SET GRID SIZE — swaps the .grid-6 / .grid-8 / .grid-9 
+function setGridSize(size) {
+    paletteGrid.classList.remove("grid-6", "grid-8", "grid-9");
+    paletteGrid.classList.add(`grid-${size}`);
+}
 
 // SET UP CLONE AMOUNTS
-function setupCloneButton(button, maxClones) {
+function setupCloneButton(button, maxClones, gridSize) {
     button.addEventListener("click", function () {
+        setGridSize(gridSize);
         reconcileClones(maxClones);
     });
 }
 
-setupCloneButton(buttonSix, 5);
-setupCloneButton(buttonEight, 7);
-setupCloneButton(buttonNine, 8);
+setupCloneButton(buttonSix, 5, 6);
+setupCloneButton(buttonEight, 7, 8);
+setupCloneButton(buttonNine, 8, 9);
 
 // INITIAL LOAD WITH RANDOM CLONES
 document.addEventListener("DOMContentLoaded", function () {
+    setGridSize(6);
     reconcileClones(5);
     recolorAllPalettes();
 });
