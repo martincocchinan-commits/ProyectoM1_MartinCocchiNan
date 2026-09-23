@@ -441,16 +441,12 @@ header {
 }
 
 #toast-copied {
-    position: absolute;
+    position: fixed;
     font-family: 'DIN2014-Bold';
     font-size: 16px;
     background: #fff;
     padding: 0.5rem;
     border-radius: 4px;
-    box-shadow: -1px 1px 10px rgba(0, 0, 0, 0.3);
-    position: fixed;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     opacity: 0;

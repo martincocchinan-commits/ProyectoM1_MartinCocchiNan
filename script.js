@@ -178,7 +178,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // TOAST APPEARS ON CLICK
-function showToast() {
+function showToast(targetEl) {
+    if (targetEl) {
+        const rect = targetEl.getBoundingClientRect();
+        toast.style.left = `${rect.left + rect.width / 2}px`;
+        toast.style.top = `${rect.top + rect.height / 2}px`;
+    }
     toast.classList.remove("show");
     void toast.offsetWidth; // force reflow so the animation restarts on rapid clicks
     toast.classList.add("show");
@@ -205,7 +210,7 @@ document.addEventListener("click", function (event) {
             console.error("Copy failed:", err);
         });
 
-    showToast();
+    showToast(swatch);
 });
 
 document.getElementById('amount-of-colors-6').classList.add('active');
