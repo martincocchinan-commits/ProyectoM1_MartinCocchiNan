@@ -192,7 +192,6 @@ function showToast(targetEl) {
 const ctaCopy = document.getElementById("cta-copy");
 const paletteGridContainer = document.getElementById("palette-container");
 
-// Position the toast at the top-left corner of the whole grid, with 10px padding
 function positionToastAtGridCorner() {
     const rect = paletteGridContainer.getBoundingClientRect();
     ctaCopy.style.left = `${rect.left + -10}px`;
@@ -202,12 +201,12 @@ function positionToastAtGridCorner() {
 document.addEventListener("mouseover", function (event) {
     const swatch = event.target.closest(".palette-created");
     if (!swatch) return;
-    if (swatch.contains(event.relatedTarget)) return; // ignore re-entry from inside itself
+    if (swatch.contains(event.relatedTarget)) return; 
 
     positionToastAtGridCorner();
 
     ctaCopy.classList.remove("hide");
-    void ctaCopy.offsetWidth; // restart animation on rapid re-hover
+    void ctaCopy.offsetWidth; 
     ctaCopy.classList.add("show");
 });
 
@@ -221,7 +220,7 @@ document.addEventListener("mouseout", function (event) {
     ctaCopy.classList.add("hide");
 });
 
-// clean up classes once fade-out finishes so state doesn't get stuck
+
 ctaCopy.addEventListener("animationend", function (event) {
     if (event.animationName === "hoverFadeOut") {
         ctaCopy.classList.remove("hide");
