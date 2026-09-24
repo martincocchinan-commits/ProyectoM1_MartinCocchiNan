@@ -2,7 +2,9 @@
 ## ¿Qué es esta web?
 
 Un sencillo generador de paletas de colores desarrollado con HTML, CSS y JavaScript.
+
 Colorfly es una web interactiva que permite generar paletas de colores aleatorias. Generando de a 6, 8, o 9 colores a la vez y pudiendo seleccionar el formato de color hex y hsl. 
+
 Tambien permite copiar el código hex de cada color con solo un click en sus swatches. 
 
 ## ✨ Como utilizar:
