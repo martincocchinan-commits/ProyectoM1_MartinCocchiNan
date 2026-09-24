@@ -75,13 +75,13 @@ En cada paso de los pedidos a la IA se aplicó una lógica de que resuelva parte
 
 ### Ejemplos de prompts y uso:
 Se solicito que el codigo javascritp funciona con 2 botones extra que puedan manejar una mayor cantidad de clones generando un SeT UP CLONE BUTTON para los 3 botones desde una function call.
-![alt text](/img/01.jpg)
+![alt text](./img/01.jpg)
 
 Se solicito que el cloner pare en 5 clones y no siga generando clones (posteriormente se arreglo para cada cantidad de clones)
-[alt text](/img/02.jpg)
+[alt text](./img/02.jpg)
 
 Se solicito un toast en hover dando los valores de css esperados y la animacion.
-[alt text](/img/03.jpg)
+[alt text](./img/03.jpg)
 
 ## 📈 Mejoras Futuras:
 
