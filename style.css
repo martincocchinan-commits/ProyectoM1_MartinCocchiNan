@@ -131,10 +131,6 @@ table {
 }
 
 
-html {
-    font-size: 100%;
-}
-
 /* FONTS USED */
 
 @font-face {
@@ -186,12 +182,18 @@ html {
     font-display: swap;
 }
 
+html {
+    font-size: 100%;
+    height: 100%;
+}
 
 body {
     font-size: 1rem;
     background: var(--color-blanco);
     margin: 0;
-
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -208,6 +210,10 @@ header {
     line-height: 0.8;
     color: #000000;
     text-align: right;
+}
+
+main.container {
+    flex: 1 0 auto;
 }
 
 .description {
@@ -351,6 +357,7 @@ header {
     transition: transform 0.10s ease;
 }
 
+/** HSL HEX **/
 .color-style {
     font-family: 'DIN2014-Bold';
     font-style: normal;
@@ -533,9 +540,9 @@ header {
 #toast-copied {
     position: fixed;
     font-family: 'DIN2014-Bold';
-    font-size: 1rem;
+    font-size: 0.7rem;
     background: #fff;
-    padding: 0.5rem;
+    padding: 0.25rem;
     border-radius: 4px;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -558,24 +565,37 @@ header {
     }
 }
 
-.toast-hover-hex {
+.cta-copy {
     position: fixed;
-    font-family: 'D-DINCondensed.otf', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.1rem;
-    background: #fff;
-    padding: 0.2rem;
-    border-radius: 4px;
-    transform: translate(-50%, -50%);
+    font-family: 'DIN2014-Demi';
+    color: #797979;
+    font-size: 1rem;
+    background: transparent;
+    padding: 0.25rem;
     text-align: center;
     opacity: 0;
     white-space: nowrap;
     pointer-events: none;
+    z-index: 10;
+    transform: translate(20%, -100%);
 }
 
-.toast-hover-hex.show {
-    animation: fadeInOutHover 1s ease-in-out forwards;
+.cta-copy.show {
+    animation: hoverFadeIn 1s ease-in-out forwards;
+}
+
+.cta-copy.hide {
+    animation: hoverFadeOut 1s ease-in-out forwards;
+}
+
+@keyframes hoverFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes hoverFadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
 
 @keyframes fadeInOutHover {
@@ -597,13 +617,13 @@ header {
 }
 
 footer {
+    flex-shrink: 0;
     text-align: center;
     color: #888;
     font-size: 0.8rem;
     font-family: 'DIN2014-Demi', sans-serif;
     font-style: normal;
     padding: 1rem;
-
 }
 
 
@@ -734,4 +754,8 @@ footer {
         font-size: 0.9rem;
         padding: 0.1rem;
     }
+    .cta-copy {
+    
+    transform: translate(20%, -135%);
+}
 }
