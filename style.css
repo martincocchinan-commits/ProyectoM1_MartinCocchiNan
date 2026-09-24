@@ -1,141 +1,141 @@
+/** FULL CSS RESET **/
 html,
-    body,
-    div,
-    span,
-    applet,
-    object,
-    iframe,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    blockquote,
-    pre,
-    a,
-    abbr,
-    acronym,
-    address,
-    big,
-    cite,
-    code,
-    del,
-    dfn,
-    em,
-    img,
-    ins,
-    kbd,
-    q,
-    s,
-    samp,
-    small,
-    strike,
-    strong,
-    sub,
-    sup,
-    tt,
-    var,
-    b,
-    u,
-    i,
-    center,
-    dl,
-    dt,
-    dd,
-    ol,
-    ul,
-    li,
-    fieldset,
-    form,
-    label,
-    legend,
-    table,
-    caption,
-    tbody,
-    tfoot,
-    thead,
-    tr,
-    th,
-    td,
-    article,
-    aside,
-    canvas,
-    details,
-    embed,
-    figure,
-    figcaption,
-    footer,
-    header,
-    hgroup,
-    menu,
-    nav,
-    output,
-    ruby,
-    section,
-    summary,
-    time,
-    mark,
-    audio,
-    video {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        font-size: 100%;
-        font: inherit;
-        vertical-align: baseline;
-    }
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
 
-    /* HTML5 display-role reset for older browsers */
-    article,
-    aside,
-    details,
-    figcaption,
-    figure,
-    footer,
-    header,
-    hgroup,
-    menu,
-    nav,
-    section {
-        display: block;
-    }
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
 
-    body {
-        line-height: 1;
-    }
+body {
+    line-height: 1;
+}
 
-    ol,
-    ul {
-        list-style: none;
-    }
+ol,
+ul {
+    list-style: none;
+}
 
-    blockquote,
-    q {
-        quotes: none;
-    }
+blockquote,
+q {
+    quotes: none;
+}
 
-    blockquote:before,
-    blockquote:after,
-    q:before,
-    q:after {
-        content: '';
-        content: none;
-    }
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
 
-    table {
-        border-collapse: collapse;
-        border-spacing: 0;
-    }
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
 
 
-/* font size */
 html {
     font-size: 100%;
 }
 
-
+/* FONTS USED */
 
 @font-face {
     font-family: 'DIN2014-BoldItalic';
@@ -145,7 +145,46 @@ html {
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'DIN2014-Demi';
+    src: url('./fonts/DIN2014-Demi.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
 
+@font-face {
+    font-family: 'DIN2014-Bold';
+    src: url('./fonts/DIN2014-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'D-DIN Exp';
+    src: url('./fonts/D-DIN Exp.otf') format('opentype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'D-DINCondensed.otf';
+    src: url('./fonts/D-DINCondensed.otf') format('opentype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+
+}
+
+@font-face {
+    font-family: 'DIN2014-ExtraBold';
+    src: url('./fonts/DIN2014-ExtraBold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
 
 
 body {
@@ -155,34 +194,21 @@ body {
 
 }
 
-.titulo {
-    margin: 0;                 /* removes the auto margins that fight with flex */
-}
 
 header {
     display: flex;
-    justify-content: center;   /* centers horizontally */
-    align-items: center;       /* centers vertically, keeps both on one line */
+    justify-content: center;
+    align-items: center;
     gap: 2rem;
     padding: 1rem;
     min-height: 150px;
     font-family: 'DIN2014-BoldItalic', sans-serif;
     font-style: italic;
-    font-size: 64px;
+    font-size: 3rem;
     line-height: 0.8;
     color: #000000;
     text-align: right;
 }
-
-
-@font-face {
-    font-family: 'DIN2014-Demi';
-    src: url('./fonts/DIN2014-Demi.ttf') format('truetype');
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-}
-
 
 .description {
     padding-left: 2rem;
@@ -222,7 +248,7 @@ header {
     padding-right: 8px;
     font-family: 'DIN2014-BoldItalic', sans-serif;
     font-style: italic;
-    font-size: 32px;
+    font-size: 2rem;
     box-sizing: border-box;
     width: 181px;
     height: 54px;
@@ -233,8 +259,8 @@ header {
     justify-content: center;
     text-align: center;
 
-    background: none;   /* moved to ::before */
-    border: none;        /* moved to ::before */
+    background: none;
+    border: none;
     border-radius: 100px;
     cursor: pointer;
     z-index: 0;
@@ -243,7 +269,7 @@ header {
 #create::before {
     content: "";
     position: absolute;
-    inset: 0;             /* fills the button's box exactly */
+    inset: 0;
     background: #FFF58C;
     border: 6px solid #000000;
     border-radius: 100px;
@@ -253,7 +279,7 @@ header {
 }
 
 #create:active::before {
-    transform: scale(1.05);   /* grows outward evenly from the center */
+    transform: scale(1.05);
     background: #ffef3d;
 }
 
@@ -261,66 +287,53 @@ header {
 .control-group {
     display: flex;
     flex-direction: row;
-    align-items: center;    /* vertically centers text with the buttons */
+    align-items: center;
     gap: 1rem;
 }
 
-@font-face {
-    font-family: 'DIN2014-Bold';
-    src: url('./fonts/DIN2014-Bold.ttf') format('truetype');
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-}
+
 
 #title-size,
 .color-style {
     font-family: 'DIN2014-Bold';
-    font-size: 32px;
-    width: auto;            /* remove the fixed 198px / 31px so text can't clip */
+    font-size: 2rem;
+    width: auto;
     height: auto;
     margin: 0;
-    white-space: nowrap;    /* keeps "PALETTE SIZE" on one line */
+    white-space: nowrap;
 }
 
 #button-amount-of-colors {
-    box-sizing: border-box;      /* 151x46 now includes the 6px border */
+    box-sizing: border-box;
     display: flex;
-    align-items: center;         /* vertical centering */
-    justify-content: space-around; /* spreads 6 / 8 / 9 evenly */
+    align-items: center;
+    justify-content: space-around;
     flex-shrink: 0;
     width: 151px;
     height: 46px;
-
     background: #DBD9D9;
     border: 6px solid #000000;
     border-radius: 100px;
-    display: flex; /* keep this on the container only */
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-@font-face {
-    font-family: 'D-DIN Exp';
-    src: url('./fonts/D-DIN Exp.otf') format('opentype');
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-}
+
 
 #amount-of-colors-6,
 #amount-of-colors-8,
 #amount-of-colors-9 {
-    transform: translateY(2px);    
+    transform: translateY(2px);
 
     outline: none;
-    flex: none;                  /* no growing/shrinking */
-    width: 40px;                 /* fixed, steady width — adjust to taste */
-    height: 40px;                /* fixed, steady height */
+    flex: none;
+    width: 40px;
+    height: 40px;
     padding: 0;
     margin: 0;
 
-    display: flex;               /* just for centering text inside the fixed box */
+    display: flex;
     align-items: center;
     justify-content: center;
 
@@ -338,312 +351,27 @@ header {
     transition: transform 0.10s ease;
 }
 
-@font-face {
-    font-family: 'DIN2014-ExtraBold';
-    src: url('./fonts/DIN2014-ExtraBold.ttf') format('truetype');
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-}
-
-/* selected state — same box size, just a visual emphasis */
-#button-amount-of-colors button.active {
-    font-family: 'DIN2014-ExtraBold', sans-serif;
-    font-style: normal;
-    font-size: 1.3rem;             /* keep base size the same */
-    line-height: 1;
-    transform: scale(1.2);       /* visually "bigger" without resizing the box */
-    
-}
-
-/* ============================================================
-   PALETTE GRID — 3 size setups (6 / 8 / 9 colors)
-   #palette-container gets one of the .grid-6 / .grid-8 / .grid-9
-   classes toggled from JS when the amount-of-colors buttons are
-   clicked. Swatch width is driven by --swatch-w so .palette-created
-   below just reads the variable and animates between values.
-   ============================================================ */
-#palette-container {
-    margin: 0 auto;
-    padding: 1rem;
-    display: grid;
-    gap: 5px;
-    grid-template-columns: repeat(6, 1fr);
-    justify-content: center;
-    --swatch-w: 8.5rem; /* default = 6-color width */
-
-    transition: grid-template-columns 0.3s ease;
-}
-
-#palette-container.grid-6 {
-    grid-template-columns: repeat(6, 1fr);
-    --swatch-w: 12rem; /* same as current 6-color width */
-    gap: 5px; /* same gap as the 6-color layout, kept explicit on purpose */
-}
-
-#palette-container.grid-8 {
-    grid-template-columns: repeat(8, 1fr);
-    --swatch-w: 10rem; /* smaller to fit 8 across */
-    gap: 5px; /* same gap as the 6-color layout */
-}
-
-#palette-container.grid-9 {
-    grid-template-columns: repeat(9, 1fr);
-    --swatch-w: 8rem; /* smaller still to fit 9 across */
-    gap: 5px; /* same gap as the 6-color layout */
-}
-
-.palette-created {
-    align-items: center;
-    border-width: 0px;
-    background-color: var(--color-blanco);
-    border-radius: 10px;
-    height: 400px;
-    width: var(--swatch-w, 8.5rem);
-    overflow: hidden;
-    cursor: pointer;
-
-    transition: width 0.3s ease;
-}
-
-@font-face {
-    font-family: 'D-DINCondensed.otf';
-    src: url('./fonts/D-DINCondensed.otf') format('opentype');
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    
-}
-
-.hsl-value {
-    font-family: 'D-DINCondensed.otf', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.1rem;
-    padding: 0.2rem;
-
-}
-
 .color-style {
     font-family: 'DIN2014-Bold';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 2rem;
     line-height: 30px;
-    
+
     color: #000000;
 }
 
-
-
-#palette-container {
-    position: relative; /* positioning context for the toast */
-}
-
-#toast-copied {
-    position: fixed;
-    font-family: 'DIN2014-Bold';
-    font-size: 16px;
-    background: #fff;
-    padding: 0.5rem;
-    border-radius: 4px;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    opacity: 0;
-    white-space: nowrap;
-    pointer-events: none;
-}
-
-#toast-copied.show {
-    animation: fadeOut 2s ease-in-out forwards;
-}
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-footer {
-    text-align: center;
-    color: #888;
-    font-size: 0.8rem;
-    font-family: 'DIN2014-Demi', sans-serif;
+/* SELECTED AMOUNT OF COLORS*/
+#button-amount-of-colors button.active {
+    font-family: 'DIN2014-ExtraBold', sans-serif;
     font-style: normal;
-    padding: 1rem;
-    
-}
-
-
-@media (max-width: 768px) {
-    header {
-        font-size: 3rem;
-        height: auto;            /* shrinks to fit the content */
-        min-height: 0;
-        flex-direction: column;  /* title above description, so nothing gets squeezed */
-        gap: 0.5rem;
-        padding: 0.5rem 1rem;
-        line-height: 1.1;        /* 0.8 can clip or overlap text when it wraps */
-        text-align: center;
-
-    }
-    .description {
-        font-size: 1rem;
-        padding-left: 0;
-        border-left: 0;          /* the vertical bar makes no sense when stacked */
-        text-align: center;
-    }
-    .galery {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr); 
-        margin: 0;               /* removes another 0.5rem of space above the controls */
-        padding: 0.5rem 1rem;
-        gap: 0.75rem;
-    }
-    #palette-container {
-        grid-template-columns: repeat(5, 1fr);
-    }
-
-    .titulo-principal {
-        font-size: 2rem;
-    }
-
-    .palette-created {
-        width: 7rem;
-    }
-    #generate {
-    font-size: 1.5rem;
-    width: 60%;
-    height: 90%;
-    border: 4px solid #000000;
-    border-radius: 100px;
-    cursor: pointer;
-}
-    #title-size, 
-    .color-style
-    {
-    font-family: 'DIN2014-Bold';
-    font-size: 1.5rem;
-    
-}
-#amount-of-colors-6,
-#amount-of-colors-8,
-#amount-of-colors-9 {
-    height: 90%;               
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     line-height: 1;
-    
-}
-#button-amount-of-colors {
-    width: 60%;
-    height: 46px;
-
-    background: #DBD9D9;
-    border: 5px solid #000000;
-    border-radius: 100px;
+    transform: scale(1.2);
 
 }
-}
 
-@media (max-width: 480px) {
-    header {
-        font-size: 2rem;
-        flex-direction: column;  /* title above description, so nothing gets squeezed */
-        gap: 0.5rem;
-        padding: 0.5rem 1rem;
-        line-height: 1.1;        /* 0.8 can clip or overlap text when it wraps */
-        text-align: center;
-
-    }
-    .description {
-        font-size: 0.8rem;
-        padding-left: 0;
-        border-left: 0;          /* the vertical bar makes no sense when stacked */
-        text-align: center;
-    }
-    #palette-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .titulo-principal {
-        font-size: 2rem;
-    }
-
-    .palette-created {
-        width: 7rem;
-    }
-    #generate {
-    font-size: 1.2rem;
-    width: 50%;
-    height: 90%;
-    border: 3px solid #000000;
-    border-radius: 100px;
-    }
-    #title-size, 
-    .color-style
-    {
-    font-family: 'DIN2014-Bold';
-    font-size: 1.2rem;
-    
-}
-    #amount-of-colors-6,
-    #amount-of-colors-8,
-    #amount-of-colors-9 {
-    height: 80%;               
-    font-size: 1.2rem;
-    line-height: 1;
-    
-}
-    #button-amount-of-colors {
-    width: 60%;
-    height: 50%;
-
-    background: #DBD9D9;
-    border: 4px solid #000000;
-    border-radius: 100px;
-
-}
-    .hsl-value {
-        font-size: 0.9rem;
-    }
-
-    .palette-created {
-        width: 6rem;
-        height: 170px;
-    }
-    
-}
-
-@keyframes opacidad {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-        
-    }
-}
-
-
-.galery,
-#palette-container {
-    animation-name: opacidad;
-    animation-duration: 1.5s;
-}
-
-/* New color swatches (clones added by the generate/size buttons)
-   fade in individually using the same keyframes. */
-.palette-clone {
-    animation-name: opacidad;
-    animation-duration: 0.6s;
-    animation-timing-function: ease;
-}
-
+/*HSL HEX BUTTON*/
 #button-mode {
     width: 100px;
     height: calc(90px / 2);
@@ -709,4 +437,301 @@ footer {
 
 #hsl {
     right: 0;
+}
+
+/**PALETTE CLONES GRID**/
+#palette-container {
+    margin: 0 auto;
+    padding: 1rem;
+    display: grid;
+    gap: 6px;
+    grid-template-columns: repeat(6, minmax(0, var(--swatch-w)));
+    justify-content: center;
+    --swatch-w: clamp(7rem, 10vw, 13rem);
+    transition: grid-template-columns 0.3s ease;
+}
+
+#palette-container.grid-6 {
+    grid-template-columns: repeat(6, minmax(0, var(--swatch-w)));
+    --swatch-w: clamp(7rem, 10vw, 13rem);
+    gap: 6px;
+}
+
+#palette-container.grid-8 {
+    grid-template-columns: repeat(8, minmax(0, var(--swatch-w)));
+    --swatch-w: clamp(5rem, 8vw, 12rem);
+    gap: 6px;
+}
+
+#palette-container.grid-9 {
+    grid-template-columns: repeat(9, minmax(0, var(--swatch-w)));
+    --swatch-w: clamp(4rem, 6vw, 11rem);
+    gap: 6px;
+}
+
+.palette-created {
+    align-items: center;
+    border-width: 0px;
+    background-color: var(--color-blanco);
+    border-radius: 10px;
+    height: 400px;
+    width: var(--swatch-w, 8.5rem);
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: width 0.3s ease;
+}
+
+/** PALETTE CLONES ANIMATION AND TRANSITION **/
+.galery,
+#palette-container {
+    animation-name: opacidad;
+    animation-duration: 1.5s;
+}
+
+.palette-clone {
+    animation-name: opacidad;
+    animation-duration: 0.6s;
+    animation-timing-function: ease;
+}
+
+.mode-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    grid-column: 1 / -1;
+}
+
+@keyframes opacidad {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+
+    }
+}
+
+.hsl-value {
+    font-family: 'D-DINCondensed.otf', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.1rem;
+    padding: 0.2rem;
+
+}
+
+
+
+#palette-container {
+    position: relative;
+}
+
+#toast-copied {
+    position: fixed;
+    font-family: 'DIN2014-Bold';
+    font-size: 1rem;
+    background: #fff;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+#toast-copied.show {
+    animation: fadeOut 2s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.toast-hover-hex {
+    position: fixed;
+    font-family: 'D-DINCondensed.otf', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.1rem;
+    background: #fff;
+    padding: 0.2rem;
+    border-radius: 4px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.toast-hover-hex.show {
+    animation: fadeInOutHover 1s ease-in-out forwards;
+}
+
+@keyframes fadeInOutHover {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+footer {
+    text-align: center;
+    color: #888;
+    font-size: 0.8rem;
+    font-family: 'DIN2014-Demi', sans-serif;
+    font-style: normal;
+    padding: 1rem;
+
+}
+
+
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        min-height: 0;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        line-height: 1.1;
+        text-align: center;
+    }
+
+    .description {
+        font-size: 1rem;
+        padding-left: 0;
+        border-left: 0;
+        text-align: center;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    .galery {
+        grid-template-columns: repeat(3, auto);
+        justify-content: center;
+        margin: 0;
+        padding: 0.5rem 1rem;
+        gap: 0.75rem;
+    }
+
+    #create,
+    .control-group {
+        grid-column: 1 / -1;
+    }
+
+    #create {
+        font-size: 1.5rem;
+        width: 50%;
+        height: 100%;
+    }
+
+    #create::before {
+        border: 4px solid #000000;
+    }
+
+    #create:active::before {
+        transform: scale(1.1);
+    }
+
+    #title-size,
+    .color-style {
+        font-size: 1.5rem;
+    }
+
+    #amount-of-colors-6,
+    #amount-of-colors-8,
+    #amount-of-colors-9 {
+        font-size: 1.2rem;
+    }
+
+    #button-amount-of-colors {
+        height: 40px;
+        border: 4px solid #000000;
+    }
+
+    /*HSL HEX BUTTON*/
+    #button-mode {
+        width: 80px;
+        height: calc(70px / 2);
+        border-width: 5px;
+    }
+
+    #button-mode::after {
+        width: calc(55px / 2);
+        height: calc(55px / 2);
+    }
+
+    #button-mode button {
+        width: 40%;
+        height: 80%;
+    }
+
+    .palette-created {
+        width: 100%;
+        height: 50px;
+    }
+
+    #palette-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 20px;
+        gap: 1px;
+    }
+
+    #palette-container.grid-6,
+    #palette-container.grid-8,
+    #palette-container.grid-9 {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        --swatch-w: 100%;
+        height: 10%;
+    }
+
+    #palette-code,
+    .palette-clone {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .hsl-value {
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 1rem;
+        padding: 0.1rem;
+    }
+
+    .toast-hover-hex {
+        font-size: 0.9rem;
+        padding: 0.1rem;
+    }
 }

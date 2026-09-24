@@ -1,10 +1,9 @@
 const buttonGenerate = document.getElementById("create");
-
 const buttonSix = document.getElementById("amount-of-colors-6");
 const buttonEight = document.getElementById("amount-of-colors-8");
 const buttonNine = document.getElementById("amount-of-colors-9");
 const paletteContainer = document.getElementById("palette-code");
-const paletteGrid = document.getElementById("palette-container"); // the actual grid wrapper
+const paletteGrid = document.getElementById("palette-container");
 const CopyHex = document.getElementsByClassName("palette-created");
 const toast = document.getElementById("toast-copied");
 
@@ -42,7 +41,7 @@ function obtenerHsl() {
 
 let currentMode = "hsl"; // default starting mode
 
-// BUTTON TOGGLE
+// BUTTON HSL-HEX TOGGLE
 const buttonMode = document.getElementById("button-mode");
 
 // sync initial visual state to match currentMode
@@ -190,7 +189,6 @@ function showToast(targetEl) {
 }
 
 // COPY HEX CODE ON CLICK
-
 document.addEventListener("click", function (event) {
     const swatch = event.target.closest(".palette-created");
     if (!swatch) return;
@@ -215,6 +213,8 @@ document.addEventListener("click", function (event) {
 
 document.getElementById('amount-of-colors-6').classList.add('active');
 
+
+// AMOUNT OF COLORS BUTTON 
 const sizeButtons = document.querySelectorAll('#button-amount-of-colors button');
 
 sizeButtons.forEach(btn => {
