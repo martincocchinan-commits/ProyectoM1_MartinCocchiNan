@@ -78,10 +78,10 @@ Se solicito que el codigo javascritp funciona con 2 botones extra que puedan man
 ![alt text](./img/01.JPG)
 
 Se solicito que el cloner pare en 5 clones y no siga generando clones (posteriormente se arreglo para cada cantidad de clones)
-[alt text](./img/02.JPG)
+![alt text](./img/02.JPG)
 
 Se solicito un toast en hover dando los valores de css esperados y la animacion.
-[alt text](./img/03.JPG)
+![alt text](./img/03.JPG)
 
 ## 📈 Mejoras Futuras:
 
